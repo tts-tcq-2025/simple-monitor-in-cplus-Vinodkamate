@@ -32,16 +32,9 @@ static bool isChargeRateValid(float chargeRate) {
 }
 
 bool batteryIsOk(float temperature, float soc, float chargeRate) {
-    if (!isTemperatureValid(temperature)) {
-        return false;
-    }
-    if (!isStateOfChargeValid(soc)) {
-        return false;
-    }
-    if (!isChargeRateValid(chargeRate)) {
-        return false;
-    }
-    return true;
+    return isTemperatureValid(temperature) &&
+           isStateOfChargeValid(soc) &&
+           isChargeRateValid(chargeRate);
 }
 
 int main() {
